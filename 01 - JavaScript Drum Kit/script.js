@@ -1,10 +1,12 @@
-var keys
-function removeTransition(e){
-    ; //Many events at the time
-    if(e.propertyName !== 'transform') return; //because transform is the longest
-    this.classList.remove('.playing');
-    console.log('papi papi')
-}; 
+
+//Because this is placed on the top of HTML the key class are not found 
+function load(){
+    console.log('hello');
+    const keys = document.querySelectorAll(".key");
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    console.log (keys);
+
+}
 
 window.addEventListener('keydown', e => {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -16,16 +18,9 @@ window.addEventListener('keydown', e => {
 });
 
 
-
-//Because this is placed on the top of HTML the key class are not found 
-
-function load(){
-    console.log('hello');
-    const keys = document.querySelectorAll(".key");
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-    console.log (keys);
-}
-
-document.addEventListener("DOMContentLoaded", load, false)
-// const keys = Array.from(document.querySelectorAll('.key'));
-
+function removeTransition(e){
+    ; //Many events at the time
+    if(e.propertyName !== 'transform') return; //because transform is the longest
+    this.classList.remove('.playing');
+    console.log('papi papi')
+}; 
