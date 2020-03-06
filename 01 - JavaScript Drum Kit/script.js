@@ -18,7 +18,7 @@ function removeTransition(e){
 //Because this is placed on the top of HTML the key class are not found 
 function readKeys () {
     const keys = document.querySelectorAll(".key")
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    keys.forEach(key => key.addEventListener('transitionend', this.removeTransition));
     console.log (keys);
 };
 
