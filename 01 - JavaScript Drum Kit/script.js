@@ -21,7 +21,7 @@ function load(){
 function removeTransition(e){
     //console.log(e); Many events at the time
         if(e.propertyName !== 'transform') return; //because transform is the longest
-        console.log(this);
+        //console.log(this);
         this.classList.remove('playing');
         
     }; 
