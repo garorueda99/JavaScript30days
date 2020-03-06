@@ -10,18 +10,21 @@ window.addEventListener('keydown', e => {
 })
 
 
+
 function load(){
     //console.log('hello');
     const keys = document.querySelectorAll(".key");
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    keys.forEach(key => key.addEventListener('click', e => {
+        key.classList.remove('playing');
+    }));
+    
     //console.log (keys);
 }
 
 
 function removeTransition(e){
-    //console.log(e); Many events at the time
         if(e.propertyName !== 'transform') return; //because transform is the longest
         //console.log(this);
         this.classList.remove('playing');
-        
-    }; 
+}; 
