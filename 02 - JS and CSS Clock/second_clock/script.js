@@ -18,6 +18,7 @@ function runTheClock() {
     hrPosition = hrPosition+(3/360);
     minPosition = minPosition+(6/60);
     secPosition = secPosition+6;
+    console.log (secPosition);
 
     HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
     MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
