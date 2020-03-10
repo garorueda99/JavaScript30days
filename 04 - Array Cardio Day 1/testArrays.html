@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AR-Test Array</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!--Solve favicon problem from audio.play() --> 
+</head>
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+
+</body>
+<script>
+    const numbers = [1,2,3,4,5,6,7,8,9,10];
+    const isEven = x => x % 2 === 0;
+    const evenNumbers = numbers.filter(isEven);
+    console.log(evenNumbers);
+
+    const people = ['Bianco, Tony','Arenas, Andrea','Beck, Glenn']
+    const organized = people.map(x => (x.slice(0,x.indexOf(",")))).sort();
+    console.log(organized);
+    console.log(people);
+    const alphaByLastName = people
+        .sort((a,b)=> a.slice(0,a.indexOf(",")) >= b.slice(0,a.indexOf(",")) ? 1:-1) ;
+console.log(alphaByLastName);
+</script>
+</html>
