@@ -1,19 +1,24 @@
 var totalSeconds = 0;
+var totalMinutes;
+var totalHours;
 function setDate(){
     
     const secondHand = document.querySelector('.seconds-hand');
     const minsHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
-
+    
+  
     const now = new Date();
     const seconds = now.getSeconds();
     totalSeconds === 0 ? totalSeconds = seconds: totalSeconds += 1; 
     // console.log(`total ${totalSeconds} sec ${seconds}`);
-    const secondsInDegrees = (360 /60) * totalSeconds;
+    const secondsInDegrees = ((360 /60) * totalSeconds)+90;
     secondHand.style.transform = `rotate(${secondsInDegrees}deg)`;
 
     const minutes = now.getMinutes();
-    const minutesInDegrees = ((360 / 60) * (minutes+(seconds/60)) + 90);
+    isNaN(totalMinutes) ? totalMinutes = minutes : seconds === 0 ? totalMinutes += 1:""
+        
+    const minutesInDegrees = ((360 / 60) * (totalMinutes+(seconds/60)) + 90);
     // console.log(`minutes ${minutesInDegrees}`);
     minsHand.style.transform = `rotate(${minutesInDegrees}deg)`;
 
@@ -23,6 +28,14 @@ function setDate(){
     // console.log(hoursInDegrees);
     hourHand.style.transform = `rotate(${hoursInDegrees}deg)`;
 
-    
+    let literalHours = hours;
+    let literalMinutes = minutes;
+    let literalSeconds = seconds;
+    hours <10 ? literalHours = "0"+hours:"";
+    minutes <10 ? literalMinutes = "0"+minutes:"";
+    seconds <10 ? literalSeconds = "0"+seconds:"";
+
+    document.getElementById("timeScreen").innerHTML = `${literalHours}:${literalMinutes}:${literalSeconds}`;
+
 }
 setInterval(setDate, 1000);

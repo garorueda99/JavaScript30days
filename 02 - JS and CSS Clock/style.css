@@ -30,6 +30,7 @@ body {
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 10px black,
     0 0 10px rgba(0,0,0,0.2);
+    /* border: 5px solid red; */
 }
 
 .clock-face {
@@ -76,7 +77,14 @@ body {
     
 }
 
-.min-hand {
+.seconds-hand {
     background:darkgoldenrod;
     height: 3px;
+}
+
+.screen{
+    margin-top: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: xx-large;
 }
