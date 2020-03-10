@@ -14,31 +14,31 @@ body {
     flex: 1;
     min-height: 100vh;
     align-items: center;
+
 }
 
 .clock {
+
     width: 30rem;
     height: 30rem;
     border: 20px solid white;
     border-radius: 50%;
-    margin: 50px auto;
+    margin: auto;
     position: relative;
     padding: 2rem;
-    box-shadow:
-    0 0 0 4px rgba(0,0,0,0.1),
+    box-shadow: 0 0 0 8px rgba(0,0,0,0.1),
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 10px black,
     0 0 10px rgba(0,0,0,0.2);
 }
 
 .clock-face {
-    border-style: solid;
-    border-color: red;
-    border: 6px;
+    margin-right: 100px;
+    /* border: 5px solid red; */
     position: relative;
     width: 100%;
     height: 100%;
-    /* transform: translateY(-3px); account for the height of the clock hands */
+    transform: translate(-4px, -3px); /*account for the height of the clock hands */
 }
 
 .hand {
@@ -49,23 +49,31 @@ body {
     top: 50%;
     transform-origin: 100%; /*to set the axis*/
     transform: rotate(90deg);
-    transition: all 0.05s;
+    transition: all 0.2s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 
-.clock-center {
+.handNoTransition {
+    width: 50%;
+    height: 6px;
+    background: black;
     position: absolute;
-    text-align: center;
     top: 50%;
+    transform-origin: 100%; /*to set the axis*/
+    transform: rotate(90deg);
+}
+
+.clock-center {
     width: 5%;
     height: 5%;
     border-radius: 50%;
-    background: black;
-    align-items: center;
+    background: purple;
+    transform: translate(143px, -3px);
 }
    
 .hour-hand {
     background: darkblue;
+    
 }
 
 .min-hand {
