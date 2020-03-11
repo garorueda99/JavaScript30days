@@ -23,5 +23,14 @@
     const alphaByLastName = people
         .sort((a,b)=> a.slice(0,a.indexOf(",")) >= b.slice(0,a.indexOf(",")) ? 1:-1) ;
 console.log(alphaByLastName);
+
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+const reducerTransport = (accumulator, data) => !accumulator[data] ? 
+(accumulator[data]=1, accumulator)
+:(accumulator[data]++, accumulator);
+const transportation = data.reduce(reducerTransport,{});
+console.log(transportation);
+
+
 </script>
 </html>
