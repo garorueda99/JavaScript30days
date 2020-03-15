@@ -10,18 +10,30 @@ fetch(endpoint)
     .then(data => cities.push(...data)); /*Spread operator */ 
 
 function findMatches(wordToMatch, cities){
+    return cities.filter(place =>{
     const regex = new RegExp(wordToMatch, 'gi'); /* g = global i = insensitive */
     return place.city.match(regex) || place.state.match(regex)
+    });
 }
 
-function displayMatches(){
-    console.log(this.value);
-}
+
 
 function load(){
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
     searchInput.addEventListener('change', displayMatches);
     searchInput.addEventListener('keyup', displayMatches);
+    function displayMatches(){
+        const matchArray = findMatches(this.value, cities);
+        const html = matchArray.map(place => {
+            return `
+            <li>
+                <span class='name'>${place.city}, ${place.state}</span>
+                <span class='population'>${place.population}</span>
+            </li>
+         `;
+        });
+        suggestions.innerHTML = html;
+    }
 }
 
