@@ -16,7 +16,9 @@ function findMatches(wordToMatch, cities){
     });
 }
 
-
+function numberWithComas(x){
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
 function load(){
     const searchInput = document.querySelector('.search');
@@ -26,13 +28,17 @@ function load(){
     function displayMatches(){
         const matchArray = findMatches(this.value, cities);
         const html = matchArray.map(place => {
+            const regex = new RegExp(this.value, 'gi');
+            const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+            const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+
             return `
             <li>
-                <span class='name'>${place.city}, ${place.state}</span>
-                <span class='population'>${place.population}</span>
+                <span class='name'>${cityName}, ${stateName}</span>
+                <span class='population'>${numberWithComas(place.population)}</span>
             </li>
          `;
-        });
+        }).join('');
         suggestions.innerHTML = html;
     }
 }
