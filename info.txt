@@ -5,3 +5,8 @@
 05 - FlexPanels / transition/ toggle
 06 - Regular Expressions / Fetch /
 07 - objects: every / some / find / findIndex / splice
+08 - canvas
+09 - browser break on.... console.warn, console.error, console.info, console.assert (False), console.clear(), 
+     console.dir, console.group(var) console.groupCollapsed(var)/console.groupEnd(var), console.count, console.time / console.timeEnd
+     console.table
+10 - 
