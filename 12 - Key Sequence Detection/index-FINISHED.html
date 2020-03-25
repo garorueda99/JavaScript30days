@@ -9,11 +9,13 @@
 <script>
 const pressed = [];
 const secretCode = 'wesbos';
-
+console.log(secretCode.length);
 window.addEventListener('keyup', (e) => {
   console.log(e.key);
   pressed.push(e.key);
-  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  pressed.splice(-secretCode.length, pressed.length - secretCode.length);
+//0 1 2 3 4 5
+
   if (pressed.join('').includes(secretCode)) {
     console.log('DING DING!');
     cornify_add();

@@ -6,7 +6,7 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
-
+const label = document.querySelector('#volume'); 
 /* Build out functions */
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
@@ -25,16 +25,19 @@ function skip() {
 
 function handleRangeUpdate() {
   video[this.name] = this.value;
+  // console.log(this.name);
 }
 
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
   progressBar.style.flexBasis = `${percent}%`;
+  label.innerHTML = `${video.volume}`;
 }
 
 function scrub(e) {
   const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
   video.currentTime = scrubTime;
+  // console.log(scrubTime)
 }
 
 /* Hook up the event listeners */
@@ -49,7 +52,10 @@ ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
 let mousedown = false;
+// progress.addEventListener('mouseout', () => mousedown = false);
 progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+progress.addEventListener('mouseout', () => mousedown = false);
+// window.addEventListener('mousemove', () => mousedown = false);
