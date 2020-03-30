@@ -11,4 +11,5 @@
      console.table
 10 - EventListener 
 11 - EventListener / Video
-12 - splice
+12 - splice / includes
+13 - Debounce (vs Throttling not seem)
