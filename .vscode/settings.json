@@ -99,5 +99,6 @@
         "veritatis",
         "wasborn",
         "xlink"
-    ]
+    ],
+    "liveServer.settings.port": 5502
 }

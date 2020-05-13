@@ -15,3 +15,4 @@
 13 - Debounce (vs Throttling not seem)
 14 - array reference vs copy array.slice() / [].concat(array) / [...array] / Array.from(array)... Object.assign({}, person, {number:99}) only one level , if more levels use function
      objects multilevel JSON.parse(JSON.stringify(Object));
+15 - e.preventDefault(); localstorage event delegation
